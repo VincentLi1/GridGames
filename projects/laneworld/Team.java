@@ -52,7 +52,12 @@ public abstract class Team {
    *         if no such pet exists, then return null
    */
   public Pet getFrontPet() {
-
+    if (pets.size() != 0) {
+      return pets.get(0);
+    }
+    else {
+      return null;
+    }
   }
 
   /**
@@ -71,8 +76,6 @@ public abstract class Team {
       while (pets.get(r).equals(p));
       return pets.get(r);
     }
-    
-    /* TODO */
   }
 
   /* Setters */
