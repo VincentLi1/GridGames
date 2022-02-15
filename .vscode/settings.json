@@ -5,9 +5,10 @@
   ],
   "java.project.sourcePaths": [
     "projects/firstProject",
+    "projects/fancyBugs",
     "projects/critters",
     "projects/boxBug",
     "projects/beachCreatures",
-    "projects/laneWorld"
+    "projects/laneworld"
   ]
 }
