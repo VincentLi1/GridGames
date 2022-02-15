@@ -52,7 +52,7 @@ public abstract class Team {
    *         if no such pet exists, then return null
    */
   public Pet getFrontPet() {
-    /* TODO */
+
   }
 
   /**
@@ -60,6 +60,18 @@ public abstract class Team {
    *         if no such pet exists, then return null
    */
   public Pet getRandomPet(Pet p) {
+    if (pets.size() == 1){
+      return null;
+    }
+    else{
+      int r = random.nextInt(pets.size());
+      do{
+        r = random.nextInt(pets.size());
+      }
+      while (pets.get(r).equals(p));
+      return pets.get(r);
+    }
+    
     /* TODO */
   }
 
