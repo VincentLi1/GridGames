@@ -13,7 +13,7 @@ public class Hedgehog extends Pet {
   public void onFaint(Team opponents) {
       ArrayList<Pet> Enemies = opponents.getPets();
       for(Pet Enemy : Enemies){
-        Enemy.changeHp(-1);
+        Enemy.changeHp(-2);
       }
   }
 
