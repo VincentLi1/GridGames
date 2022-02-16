@@ -104,7 +104,11 @@ public abstract class Team {
    */
   public void checkForFaintedPets(Team opponents) {
     for (Pet p : pets) {
-      /* TODO */
+      if (p.hp <= 0){
+        // Then the pet has fainted
+        p.onFaint(opponents);
+        p.removeSelfFromGrid();
+      }
     }
     pets.removeIf(p -> p.fainted());
     movePets();
