@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Hedgehog extends Pet {
 
   public Hedgehog(int id, String name, int attack, int hp, int direction, Team team){
-    super(id, name, attack, hp, direction, team);
+    super(id, "Hedgehog", 3, 2, direction, team);
   }
   
   public void onFaint(Team opponents) {
