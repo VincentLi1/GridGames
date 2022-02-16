@@ -12,8 +12,12 @@ public class Beaver extends Pet {
   }
 
   private void helpFriend() {
-    /* TODO */
-  }
+      Pet friend = team.getRandomPet(this);
+      if (friend != null){
+        LaneWorldLogger.log(String.format("%s gains +%d/+%d.", friend, bonusHp));
+        friend.changeAttack(bonusHp);
+      }
+     }
 
   public void onStart(Team opponents) {
     for (int i = 0; i < numFriends; i++) {

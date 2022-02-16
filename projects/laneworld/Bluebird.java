@@ -4,10 +4,17 @@
  */
 public class Bluebird extends Pet {
 
+  private int bonusAtk = 1;
+
   public Bluebird(int id, int direction, Team team) {
     super(id, "Bluebird", 2, 1, direction, team);
   }
 
-  /* TODO */
-
-}
+  public void onStart(Team opponents) {
+     Pet friend = team.getFrontPet();
+     if (friend != null){
+     LaneWorldLogger.log(String.format("%s gains +%d/+%d.", friend, bonusAtk));
+      friend.changeAttack(bonusAtk);
+     }
+    }
+  }
