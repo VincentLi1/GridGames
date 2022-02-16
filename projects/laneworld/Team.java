@@ -53,22 +53,7 @@ public abstract class Team {
    */
   public Pet getFrontPet() {
     if (pets.size() != 0) {
-      if (isLeft){
-        int xMax = pets.size();
-        int i = 0;
-        while (pets.get(xMax - i).equals(null) && (i <= xMax)) {
-          i++;
-        }
-        return pets.get(xMax - i);
-      }
-      else {
-        int xMax = pets.size();
-        int i = 0;
-        while (pets.get(i).equals(null) && (i <= xMax)) {
-          i++;
-        }
-        return pets.get(i);
-      }
+      return pets.get(0);
     }
     else {
       return null;
@@ -131,7 +116,15 @@ public abstract class Team {
    * go into the middle Location (0,5)
    */
   public void movePets() {
-    /* TODO */
+    for (Pet pet: pets) {
+      Location loc = pet.getLocation();
+      int dx = isLeft ? 1 : -1;
+      Location front_loc = new Location(loc.getRow(),loc.getCol() + dx);
+      Grid<Actor> grid = pet.getGrid();
+      if (grid.get(front_loc) == null && front_loc != new Location(0,5)) {
+        pet.moveTo(loc);
+      }
+    }
   }
 
   /**
