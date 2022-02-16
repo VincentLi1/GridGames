@@ -53,7 +53,22 @@ public abstract class Team {
    */
   public Pet getFrontPet() {
     if (pets.size() != 0) {
-      return pets.get(0);
+      if (isLeft){
+        int xMax = pets.size();
+        int i = 0;
+        while (pets.get(xMax - i).equals(null) && (i <= xMax)) {
+          i++;
+        }
+        return pets.get(xMax - i);
+      }
+      else if (!isLeft){
+        int xMax = pets.size();
+        int i = 0;
+        while (pets.get(i).equals(null) && (i <= xMax)) {
+          i++;
+        }
+        return pets.get(i);
+      }
     }
     else {
       return null;
