@@ -76,7 +76,7 @@ public abstract class Team {
       while (pets.get(r).equals(p));
       return pets.get(r);
     }
-  }
+  } 
 
   /* Setters */
   public void addPet(Pet p) {
