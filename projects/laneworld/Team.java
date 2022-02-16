@@ -71,7 +71,7 @@ public abstract class Team {
       }
     }
     else {
-      return null;
+      return pets.get(0);
     }
   }
 
