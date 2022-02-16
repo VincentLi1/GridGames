@@ -53,22 +53,7 @@ public abstract class Team {
    */
   public Pet getFrontPet() {
     if (pets.size() != 0) {
-      if (isLeft){
-        int xMax = pets.size();
-        int i = 0;
-        while (pets.get(xMax - i).equals(null) && (i <= xMax)) {
-          i++;
-        }
-        return pets.get(xMax - i);
-      }
-      else if (!isLeft){
-        int xMax = pets.size();
-        int i = 0;
-        while (pets.get(i).equals(null) && (i <= xMax)) {
-          i++;
-        }
-        return pets.get(i);
-      }
+      return pets.get(0);
     }
     else {
       return null;
@@ -119,11 +104,7 @@ public abstract class Team {
    */
   public void checkForFaintedPets(Team opponents) {
     for (Pet p : pets) {
-      if (p.hp <= 0){
-        // Then the pet has fainted
-        p.onFaint(opponents);
-        p.removeSelfFromGrid();
-      }
+      /* TODO */
     }
     pets.removeIf(p -> p.fainted());
     movePets();
