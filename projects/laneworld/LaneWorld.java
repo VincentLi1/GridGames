@@ -74,7 +74,18 @@ public class LaneWorld extends ActorWorld {
    * Then check for fainted pets
    */
   private void battle() {
-    /* TODO */
+    Pet lp = teamLeft.getFrontPet();
+    Pet rp = teamRight.getFrontPet();
+
+    lp.attack(rp);
+    rp.attack(lp);
+
+    if (lp.fainted()){
+      lp.faint();
+    }
+    if (rp.fainted()){
+      rp.faint();
+    }
   }
 
   /**

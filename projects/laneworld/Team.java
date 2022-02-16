@@ -91,7 +91,7 @@ public abstract class Team {
       while (pets.get(r).equals(p));
       return pets.get(r);
     }
-  }
+  } 
 
   /* Setters */
   public void addPet(Pet p) {
@@ -119,7 +119,8 @@ public abstract class Team {
    */
   public void checkForFaintedPets(Team opponents) {
     for (Pet p : pets) {
-      /* TODO */
+      p.onFaint(opponents);
+      p.removeSelfFromGrid();
     }
     pets.removeIf(p -> p.fainted());
     movePets();
@@ -131,7 +132,15 @@ public abstract class Team {
    * go into the middle Location (0,5)
    */
   public void movePets() {
-    /* TODO */
+    for (Pet pet: pets) {
+      Location loc = pet.getLocation();
+      int dx = isLeft ? 1 : -1;
+      Location front_loc = new Location(loc.getRow(),loc.getCol() + dx);
+      Grid<Actor> grid = pet.getGrid();
+      if (grid.get(front_loc) == null && front_loc != new Location(0,5)) {
+        pet.moveTo(loc);
+      }
+    }
   }
 
   /**
