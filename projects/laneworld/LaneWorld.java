@@ -80,12 +80,15 @@ public class LaneWorld extends ActorWorld {
     lp.attack(rp);
     rp.attack(lp);
 
+    /** 
     if (lp.fainted()){
       lp.faint();
     }
     if (rp.fainted()){
       rp.faint();
     }
+    */
+    checkForFaintedPets();
   }
 
   /**
