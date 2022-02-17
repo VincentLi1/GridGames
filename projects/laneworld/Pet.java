@@ -86,4 +86,7 @@ public abstract class Pet extends Actor {
   public void onStart(Team opponents) {
   }
 
+  public void onAttack(Team opponents) {
+  }
+
 }
