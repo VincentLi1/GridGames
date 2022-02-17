@@ -16,12 +16,12 @@ public class RedPanda extends Pet {
     private int bonusFriendHp;
     private int bonusSelfHp;
     
-     public RedPanda(int id, int direction, Team team){
+    public RedPanda(int id, int direction, Team team){
         super(id, "Red Panda", 2, 2, direction, team);
-     }
+    }
 
-     public void onAttack(Team opponents){
-        opponent = opponents.getRandomPet(this);
+    public void onAttack(Team opponents){
+        Pet opponent = opponents.getRandomPet(this);
         x = rand.nextInt(11);
         if (x >= 1 && x <= 6){
             Pet friend = team.getRandomPet(this);
@@ -29,10 +29,13 @@ public class RedPanda extends Pet {
                 LaneWorldLogger.log(String.format("%s gains +%d.", friend, bonusFriendHp));
                 friend.changeHp(bonusFriendHp);
         }else if (x >= 7 && x <=9){
-            this.hp += 4;
+            LaneWorldLogger.log(String.format("%s gains +%d.", this, bonusSelfHp));
+            this.changeHp(bonusSelfHp);
         }else if (x == 10){
             instkill = opponent.getHp();
-            opponent.take_Damage(instkill);
+            opponent.changeHp(instkill);
+            LaneWorldLogger.log(String.format("%s died by bamboo.", opponent));
+            }
         }
-     }
+    }
 }
