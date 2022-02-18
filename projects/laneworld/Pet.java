@@ -6,6 +6,7 @@ public abstract class Pet extends Actor {
   int hp;
   int attack;
   Team team;
+  
 
   public Pet(int id, String name, int attack, int hp, int direction, Team team) {
     this.id = id;
@@ -45,6 +46,10 @@ public abstract class Pet extends Actor {
   /* Setters */
   public void changeHp(int delta) {
     this.hp += delta;
+
+    if (delta < 0) { // is damaged
+      onHurt(-delta);
+    }
   }
 
   public void changeAttack(int delta) {
@@ -84,6 +89,12 @@ public abstract class Pet extends Actor {
   }
 
   public void onStart(Team opponents) {
+  }
+
+  public void onHurt(int damage) {
+  }
+  
+  public void onAttack(Team opponents) {
   }
 
 }
