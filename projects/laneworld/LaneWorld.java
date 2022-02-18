@@ -80,14 +80,6 @@ public class LaneWorld extends ActorWorld {
     lp.attack(rp);
     rp.attack(lp);
 
-    /** 
-    if (lp.fainted()){
-      lp.faint();
-    }
-    if (rp.fainted()){
-      rp.faint();
-    }
-    */
     checkForFaintedPets();
   }
 
@@ -107,7 +99,11 @@ public class LaneWorld extends ActorWorld {
    * and preventing further steps.
    */
   private void checkWin() {
-    /* TODO */
+    // Check for leftKO, rightKO
+
+    // Check if there are 0 pets (which implies that there's a KO of the team)
+    boolean leftKO = (teamLeft.getPets().size()==0);
+    boolean rightKO = (teamRight.getPets().size()==0);
 
     if (leftKO || rightKO) {
       gameOver = true;
