@@ -4,7 +4,10 @@ public class LaneWorldRunner {
     Team R = new TeamLee(false);
 
     LaneWorld world = new LaneWorld(L, R);
+
     world.show();
+
+
 
   }
 }
